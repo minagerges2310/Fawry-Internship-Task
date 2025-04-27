@@ -1,0 +1,18 @@
+1. The script handles the arguments using "getopts" the script handle the options -n -v each option in a case statement and the invalid options triggers an error message 
+
+After that "shift $((OPTIND - 1))" moves the remaining arguments into position 
+
+The script uses 2 positional arguments S1,S2 the script then checks of the 2 arguments are present if not it gives an error 
+
+Also the script checks if the file exists using "[[ -f "$file" ]]" if not it prints an error message 
+
+2-If the script would support regex or more options like -i -c -l the structure would change :
+for Regex support : instead of simple string matching it would be replaced with egrep or grep -E for extended regular expressions 
+
+for Case-Insensitive Search -i: since the script already support case-insensitive matching by converting both the line and search string to lowercase adding -i would be easily implemented 
+
+for count Matches -c: a counter variable would track the number of matching lines instead of printing lines the script would output the count at the end
+
+for list filenames -l: to make this option available the script would go through each file and print the names of the files contating matches so to make the script able to accept multiple files a new variables would be added to count and to list the files 
+
+3-The hardest part to implement was handling the -v at the beginning i used match=!$match to invert the match result, but this caused errors because Bash misinterpreted !true and !false as commands to solve this i used an if-else block  
