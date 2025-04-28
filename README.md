@@ -43,7 +43,7 @@ Error handling for missing arguments.
 
 ![image](https://github.com/user-attachments/assets/40315075-20ec-4276-bd54-2608499809ed)
 
-##Reflective Section
+## Reflective Section
 
 ### 1. The script handles the arguments using `getopts` the script handle the options `-n` `-v` each option in a case statement and the invalid options triggers an error message 
 
